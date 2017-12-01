@@ -1,0 +1,303 @@
+回顾:
+1.类和对象
+2.创建类、成员变量、方法
+3.创建对象
+    new Cell();
+    Cell c = new Cell();
+    c:引用类型变量，简称"引用"
+4.访问成员变量、方法
+    对象.成员变量
+    对象.方法(?);
+5.基本类型之间画等号----赋值
+  引用类型之间画等号----指向同一个对象
+6.null:空，没有指向对象
+       不能点，否则空指针异常
+
+8种基本类型:可以直接赋值
+除了8种之外:
+    类、接口、数组----引用类型
+    new出的
+
+1.基本:
+    直接赋值
+    变量装的就是确切的值
+    画等号----赋值
+    int num = 5;
+2.引用:
+    new
+    变量装的是地址
+    画等号----指向同一个对象
+
+
+正课:
+1.方法的重载
+class Aoo{
+   void pay(){}
+   void pay(double d){}
+   void pay(String s1,String s2){}
+   void pay(int a,double d){}
+   void pay(double d,int a){}
+
+   void pay(int num,double dou){} //错误
+   int pay(){} //错误
+}
+
+用户:
+
+void println(){}
+void printlnString(String str){}
+void printlnInt(int n){}
+void printlnDouble(double d){}
+void printlnBoolean(boolean b){}
+
+
+System.out.println();
+System.out.println("HelloWorld");
+System.out.println(111);
+System.out.println(5.55);
+
+
+java建议:
+  1个文件只包含1个类
+
+java规定:
+  java中一个文件可以包含多个类，
+  但是，public的类只能有1个，
+  并且，public的类必须与文件名相同
+
+
+语法:
+1.class---成员变量、方法
+2.测试类---main(){创建对象}
+
+
+构造方法:
+1.构造方法常常用于给成员变量初始化
+2.与类同名，没有返回值类型
+3.构造方法是在创建对象时被自动调用
+4.若自己不写构造方法，
+  则编译器默认给一个无参构造，
+  若自己写了，则不再默认提供无参构造
+5.构造方法可以重载
+
+this:
+1.this指代当前对象，谁调指的就是谁
+2.用法:
+    this.成员变量---访问成员变量
+    this.方法()-----访问方法
+    this()--------调构造方法
+
+
+class Cell{
+   int row;
+   int col;
+   Cell(int row,int col){
+      this.row = row;
+      this.col = col;
+   }
+   Cell(int n){
+      this(n,n);
+   }
+   Cell(){
+      this(0,0); //调两个int型参数的构造
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+class Cell{
+   int row;
+   int col;
+   Cell(int row,int col){
+      this.row = row;
+      this.col = col;
+   }
+   void drop(){
+      row++;
+      //this.row++;  //相当于c.row++
+   }
+}
+main(){
+   Cell cc = new Cell(2,8);
+   cc.drop();
+
+   
+
+   Cell c = new Cell(5,4);//c.row=5,c.col=4
+   c.drop();
+   System.out.println(c.row); //6
+
+
+
+
+
+   Cell c = new Cell(5,4);
+   Cell cc = new Cell(8,2);
+}
+
+
+
+
+
+
+
+
+
+class Cell{
+   int row;
+   int col;
+   void drop(){}
+   void moveLeft(){}
+   String getCellInfo(){}
+   
+   Cell(){
+   }
+   Cell(int n){
+      row = n;
+      col = n;
+   }
+   Cell(int row,int col){
+      this.row = row;
+      this.col = col;
+   }
+}
+class CellTest{
+   main(){
+      Cell c = new Cell();
+      Cell c = new Cell(5);
+
+      Cell c = new Cell(5,4);
+
+
+
+
+      Cell c = new Cell();
+      c.row = 5;
+      c.col = 4;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+class Student{  //学生类
+   String name;
+   int age;
+   String address;
+   void study(){}
+
+
+   void sayHi(){
+      study();
+      this.study();
+
+      System.out.println(name+",,,"+age+",,,"+address);
+   }
+
+   Student zs = new Student("zhangsan",25,"河北");
+   zs.sayHi();
+
+   Student ls = new Student("lisi",26,"黑龙江");
+   ls.sayHi();
+
+
+
+
+
+
+
+   Student(){
+   }
+   Student(String name,int age,String address){
+      this.name = name;
+      this.age = age;
+      this.address = address;
+      //this.name---指的是成员变量
+      //name--------指的是局部变量/参数
+   }
+}
+class StudentTest{
+   main(){
+      Student zs = new Student();
+      Student zs = new Student("zhangsan",25,"河北");
+      
+
+
+      Student ls = new Student("lisi",26,"黑龙江");
+
+
+
+
+
+
+
+
+      Student zs = new Student();
+      zs.setInfo("zhangsan",25,"河北");
+
+      Student ls = new Student();
+      ls.setInfo("lisi",18,"黑龙江");
+
+
+      Student zs = new Student();
+      zs.name = "zhangsan";
+      zs.age = 25;
+      zs.address = "河北";
+
+      Student ls = new Student();
+      ls.name = "lisi";
+      ls.age = 23;
+      ls.address = "黑龙江";
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2.构造方法
+3.引用类型数组
+
+
+
+
+
+
+
+
+
+
+
+
+
