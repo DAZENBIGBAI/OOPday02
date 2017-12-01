@@ -18,6 +18,7 @@ public class CellTest {
 		System.out.println(ss); //0,,,0
 		*/
 		
+		/*
 		Cell c = new Cell();
 		c.row = 5;
 		c.col = 4;
@@ -30,6 +31,17 @@ public class CellTest {
 		System.out.println("左移一行");
 		c.moveLeft();
 		print(c);
+		*/
+		
+		//测试构造方法
+		Cell c = new Cell(); //row=col=0
+		Cell cc = new Cell(5);//row=col=5
+		Cell ccc = new Cell(5,4);//row=5,col=4
+		
+		print(ccc);
+		
+		
+		
 	}
 	public static void print(Cell cc){
 		for(int i=0;i<20;i++){   //行号
